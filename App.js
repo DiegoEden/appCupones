@@ -11,6 +11,7 @@ import {
   useColorScheme,
   Appearance,
   StatusBar,
+  Alert,
 } from 'react-native';
 import {ScrollView} from 'react-native';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
@@ -49,7 +50,7 @@ export const App = () => {
           <Text style={styles.whiteText}>Registrarme</Text>
         </Pressable>
       </ImageBackground>
-    </View> */
+    </View>*/
 
     /*<View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
@@ -151,9 +152,23 @@ export const App = () => {
           </Text>
 
           <View style={styles.row}>
-            <Image source={require('./src/img/icon-google.png')}></Image>
-            <Image source={require('./src/img/icon-facebook.png')}></Image>
-            <Image source={require('./src/img/icon-apple.png')}></Image>
+            <Pressable>
+              <Image
+                style={styles.loginIcons}
+                source={require('./src/img/icon-google.png')}></Image>
+            </Pressable>
+
+            <Pressable>
+              <Image
+                style={styles.loginIcons}
+                source={require('./src/img/icon-facebook.png')}></Image>
+            </Pressable>
+
+            <Pressable>
+              <Image
+                style={styles.loginIcons}
+                source={require('./src/img/icon-apple.png')}></Image>
+            </Pressable>
           </View>
         </View>
         <Text
@@ -183,7 +198,7 @@ export const App = () => {
       </View>
     </View>*/
 
-    /*<ScrollView>
+    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
       <>
         <View
           style={[
@@ -317,7 +332,7 @@ export const App = () => {
           </View>
         </View>
       </>
-    </ScrollView>*/
+    </ScrollView>
 
     /* <View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
@@ -390,7 +405,7 @@ export const App = () => {
       </View>
     </View> */
 
-    <View
+    /*<View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
       <View style={styles.center}>
         <Image
@@ -416,11 +431,17 @@ export const App = () => {
           <Text style={styles.textbutton}>Empezar</Text>
         </Pressable>
       </View>
-    </View>
+    </View>*/
   );
 };
 
 const styles = StyleSheet.create({
+  loginIcons: {
+    marginLeft: 15,
+    marginEnd: 15,
+    width: 44,
+    height: 44,
+  },
   darkInput: {
     backgroundColor: '#464646',
     color: 'white',
@@ -492,8 +513,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   imgSigIn: {
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
   },
   row: {
     flexDirection: 'row',
@@ -523,7 +544,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     marginTop: 15,
     backgroundColor: '#F0F1F5',
-    width: '87%',
+    width: '90%',
     borderBottomLeftRadius: 16,
     borderTopLeftRadius: 16,
     borderBottomRightRadius: 16,
@@ -535,7 +556,7 @@ const styles = StyleSheet.create({
   textLogin: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
-    marginLeft: 20,
+    marginLeft: 25,
     marginTop: 15,
     color: '#75759E',
   },
@@ -606,13 +627,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F35C56',
     borderRadius: 22,
     marginTop: 60,
-    width: 327,
+    width: '87%',
   },
   sigInButton: {
     backgroundColor: '#F35C56',
     borderRadius: 22,
     marginTop: 30,
-    width: 290,
+    width: '87%',
   },
   loginButton: {
     backgroundColor: '#F35C56',
@@ -631,7 +652,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     borderRadius: 22,
     marginTop: 20,
-    width: 327,
+    width: '87%',
   },
   whiteText: {
     color: '#F35C56',
