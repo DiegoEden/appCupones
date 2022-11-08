@@ -12,9 +12,17 @@ import {
   Appearance,
   StatusBar,
   Alert,
+  ScrollView,
 } from 'react-native';
-import {ScrollView} from 'react-native';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+import {MainInput, VerInput} from './components/input';
+import {
+  Boton,
+  MarginBoton,
+  WhiteButton,
+  LoginButton,
+} from './components/button';
+import {LabelForm} from './components/label';
 
 export const App = () => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -23,12 +31,15 @@ export const App = () => {
   const theme = useColorScheme();
 
   const modo = Appearance.getColorScheme();
+
   if (modo === 'dark') {
     StatusBar.setBarStyle('light-content', true);
-    StatusBar.setBackgroundColor('#343434');
+    StatusBar.setBackgroundColor('transparent', true);
+    StatusBar.setTranslucent(true);
   } else if (modo === 'light') {
     StatusBar.setBarStyle('dark-content', true);
-    StatusBar.setBackgroundColor('#FFFFFF');
+    StatusBar.setBackgroundColor('transparent', true);
+    StatusBar.setTranslucent(true);
   } else {
     StatusBar.setBarStyle('default', true);
   }
@@ -43,12 +54,8 @@ export const App = () => {
           source={require('./src/img/cuponLogo.png')}
           style={styles.logo}></Image>
 
-        <Pressable style={styles.button}>
-          <Text style={styles.textbutton}>Iniciar sesión</Text>
-        </Pressable>
-        <Pressable style={styles.whiteButton}>
-          <Text style={styles.whiteText}>Registrarme</Text>
-        </Pressable>
+        <MarginBoton texto="Iniciar sesión"></MarginBoton>
+        <WhiteButton texto="Registrarme"></WhiteButton>
       </ImageBackground>
     </View>*/
 
@@ -65,41 +72,14 @@ export const App = () => {
             style={styles.imgLogin}></Image>
         </View>
 
-        <Text
-          style={[
-            styles.textLogin,
-            theme === 'dark' ? styles.darkTitle : styles.textLogin,
-          ]}>
-          Usuario
-        </Text>
+        <LabelForm texto="Usuario"></LabelForm>
         <View style={styles.center}>
-          <TextInput
-            style={[
-              styles.input,
-              theme === 'dark' ? styles.darkInput : styles.input,
-            ]}
-            placeholder="Nombre de usuario"
-            placeholderTextColor={'#C8C8D3'}
-            cursorColor={'#F35C56'}></TextInput>
+          <MainInput placeholder="Nombre de usuario"></MainInput>
         </View>
-        <Text
-          style={[
-            styles.textLogin,
-            theme === 'dark' ? styles.darkTitle : styles.textLogin,
-          ]}>
-          Contraseña
-        </Text>
+        <LabelForm texto="Contraseña"></LabelForm>
+
         <View style={styles.center}>
-          <TextInput
-            style={[
-              styles.input,
-              theme === 'dark' ? styles.darkInput : styles.input,
-            ]}
-            placeholder="Contraseña"
-            placeholderTextColor={'#C8C8D3'}
-            textContentType="password"
-            secureTextEntry={true}
-            cursorColor={'#F35C56'}></TextInput>
+          <MainInput placeholder="Contraseña"></MainInput>
         </View>
       </View>
 
@@ -171,34 +151,18 @@ export const App = () => {
             </Pressable>
           </View>
         </View>
-        <Text
-          style={[
-            styles.textLogin,
-            theme === 'dark' ? styles.darkTitle : styles.textLogin,
-          ]}>
-          Número de teléfono
-        </Text>
+        <LabelForm texto="Número de teléfono"></LabelForm>
         <View style={styles.center}>
-          <TextInput
-            style={[
-              styles.input,
-              theme === 'dark' ? styles.darkInput : styles.input,
-            ]}
-            placeholder="Número de teléfono"
-            placeholderTextColor={'#C8C8D3'}
-            cursorColor={'#F35C56'}
-            keyboardType={'number-pad'}></TextInput>
+          <MainInput placeholder="Número de teléfono"></MainInput>
         </View>
 
         <View style={styles.center}>
-          <Pressable style={styles.sigInButton}>
-            <Text style={styles.textbutton}>Continuar</Text>
-          </Pressable>
+          <LoginButton texto="Continuar"></LoginButton>
         </View>
       </View>
     </View>*/
 
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
+    /* <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
       <>
         <View
           style={[
@@ -215,108 +179,37 @@ export const App = () => {
                 source={require('./src/img/cuponLogo.png')}
                 style={styles.imgSigIn}></Image>
             </View>
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Usuario
-            </Text>
+            <LabelForm texto="Usuario"></LabelForm>
 
             <View style={styles.center}>
-              <TextInput
-                style={[
-                  styles.input,
-                  theme === 'dark' ? styles.darkInput : styles.input,
-                ]}
-                placeholder="Nombre de usuario"
-                placeholderTextColor={'#C8C8D3'}
-                cursorColor={'#F35C56'}></TextInput>
+              <MainInput placeholder="Nombre de usuario"></MainInput>
             </View>
 
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Email
-            </Text>
+            <LabelForm texto="Email"></LabelForm>
+
             <View style={styles.center}>
-              <TextInput
-                style={[
-                  styles.input,
-                  theme === 'dark' ? styles.darkInput : styles.input,
-                ]}
-                placeholder="Ejemplo@mail.com"
-                placeholderTextColor={'#C8C8D3'}
-                cursorColor={'#F35C56'}></TextInput>
-            </View>
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Número de teléfono
-            </Text>
-            <View style={styles.center}>
-              <TextInput
-                style={[
-                  styles.input,
-                  theme === 'dark' ? styles.darkInput : styles.input,
-                ]}
-                placeholder="Número de teléfono"
-                placeholderTextColor={'#C8C8D3'}
-                cursorColor={'#F35C56'}
-                keyboardType={'number-pad'}></TextInput>
-            </View>
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Contraseña
-            </Text>
-            <View style={styles.center}>
-              <TextInput
-                style={[
-                  styles.input,
-                  theme === 'dark' ? styles.darkInput : styles.input,
-                ]}
-                placeholder="Contraseña"
-                placeholderTextColor={'#C8C8D3'}
-                textContentType="password"
-                secureTextEntry={true}
-                cursorColor={'#F35C56'}></TextInput>
+              <MainInput placeholder="Ejemplo@mail.com"></MainInput>
             </View>
 
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Confirmar contraseña
-            </Text>
+            <LabelForm texto="Número de teléfono"></LabelForm>
+
             <View style={styles.center}>
-              <TextInput
-                style={[
-                  styles.input,
-                  theme === 'dark' ? styles.darkInput : styles.input,
-                ]}
-                placeholder="Confirmar contraseña"
-                placeholderTextColor={'#C8C8D3'}
-                textContentType="password"
-                secureTextEntry={true}
-                cursorColor={'#F35C56'}></TextInput>
+              <MainInput placeholder="Número de teléfono"></MainInput>
+            </View>
+            <LabelForm texto="Contraseña"></LabelForm>
+
+            <View style={styles.center}>
+              <MainInput placeholder="Contraseña"></MainInput>
+            </View>
+            <LabelForm texto="Confirmar contraseña"></LabelForm>
+
+            <View style={styles.center}>
+              <MainInput placeholder="Confirmar contraseña"></MainInput>
             </View>
           </View>
           <View style={styles.badge}>
-            <Text
-              style={[
-                styles.textLogin,
-                theme === 'dark' ? styles.darkTitle : styles.textLogin,
-              ]}>
-              Acepto términos de servicio
-            </Text>
+            <LabelForm texto=" Acepto términos de servicio"></LabelForm>
+
             <Switch
               trackColor={{false: '#767577', true: '#F35C56'}}
               thumbColor={isEnabled ? 'white' : '#f4f3f4'}
@@ -326,15 +219,13 @@ export const App = () => {
             />
           </View>
           <View style={styles.center}>
-            <Pressable style={styles.sigInButton2}>
-              <Text style={styles.textbutton}>Continuar</Text>
-            </Pressable>
+            <Boton texto="Ingresar"></Boton>
           </View>
         </View>
       </>
-    </ScrollView>
+    </ScrollView>*/
 
-    /* <View
+    <View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
       <View
         style={[
@@ -351,39 +242,15 @@ export const App = () => {
         </Text>
         <Text style={styles.phoneN}>(+503) 76893569</Text>
         <View style={styles.rowSMS}>
-          <TextInput
-            style={[
-              styles.VeriInput,
-              theme === 'dark' ? styles.darkInput : styles.VeriInput,
-            ]}
-            cursorColor={'#F35C56'}
-            keyboardType={'number-pad'}></TextInput>
-          <TextInput
-            style={[
-              styles.VeriInput,
-              theme === 'dark' ? styles.darkInput : styles.VeriInput,
-            ]}
-            cursorColor={'#F35C56'}
-            keyboardType={'number-pad'}></TextInput>
-          <TextInput
-            style={[
-              styles.VeriInput,
-              theme === 'dark' ? styles.darkInput : styles.VeriInput,
-            ]}
-            cursorColor={'#F35C56'}
-            keyboardType={'number-pad'}></TextInput>
-          <TextInput
-            style={[
-              styles.VeriInput,
-              theme === 'dark' ? styles.darkInput : styles.VeriInput,
-            ]}
-            cursorColor={'#F35C56'}
-            keyboardType={'number-pad'}></TextInput>
+          <VerInput></VerInput>
+          <VerInput></VerInput>
+
+          <VerInput></VerInput>
+
+          <VerInput></VerInput>
         </View>
         <View style={styles.center}>
-          <Pressable style={styles.sigInButton}>
-            <Text style={styles.textbutton}>Continuar</Text>
-          </Pressable>
+          <LoginButton texto="Continuar"></LoginButton>
         </View>
         <View style={styles.smsDiv}>
           <Text
@@ -403,7 +270,7 @@ export const App = () => {
           </Text>
         </Pressable>
       </View>
-    </View> */
+    </View>
 
     /*<View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
@@ -427,9 +294,7 @@ export const App = () => {
           ]}>
           Elegir cupones, simplemente seleccione y canjea.
         </Text>
-        <Pressable style={styles.button}>
-          <Text style={styles.textbutton}>Empezar</Text>
-        </Pressable>
+        <MarginBoton texto="Empezar"></MarginBoton>
       </View>
     </View>*/
   );
@@ -441,10 +306,6 @@ const styles = StyleSheet.create({
     marginEnd: 15,
     width: 44,
     height: 44,
-  },
-  darkInput: {
-    backgroundColor: '#464646',
-    color: 'white',
   },
   darkCard: {
     backgroundColor: '#343434',
@@ -478,18 +339,6 @@ const styles = StyleSheet.create({
     paddingEnd: 15,
     paddingTop: 15,
   },
-  VeriInput: {
-    marginLeft: 17,
-    marginTop: 15,
-    backgroundColor: '#F0F1F5',
-    width: '17%',
-    borderBottomLeftRadius: 16,
-    borderTopLeftRadius: 16,
-    borderBottomRightRadius: 16,
-    fontSize: 16,
-    fontFamily: 'Montserrat-Regular',
-    color: 'black',
-  },
   phoneN: {
     fontFamily: 'Montserrat-Medium',
     marginLeft: 20,
@@ -504,13 +353,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
     color: '#272459',
     marginTop: 10,
-  },
-  sigInButton2: {
-    backgroundColor: '#F35C56',
-    borderRadius: 22,
-    marginTop: 15,
-    width: '87%',
-    marginBottom: 30,
   },
   imgSigIn: {
     width: 100,
@@ -537,28 +379,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   sigInSwitch: {
-    marginLeft: 30,
-    marginTop: 10,
-  },
-  input: {
-    marginLeft: 4,
-    marginTop: 15,
-    backgroundColor: '#F0F1F5',
-    width: '90%',
-    borderBottomLeftRadius: 16,
-    borderTopLeftRadius: 16,
-    borderBottomRightRadius: 16,
-    paddingLeft: 20,
-    fontSize: 16,
-    fontFamily: 'Montserrat-Regular',
-    color: 'black',
-  },
-  textLogin: {
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 14,
     marginLeft: 25,
-    marginTop: 15,
-    color: '#75759E',
+    marginTop: 10,
   },
   center: {
     alignItems: 'center',
@@ -622,44 +444,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-  },
-  button: {
-    backgroundColor: '#F35C56',
-    borderRadius: 22,
-    marginTop: 60,
-    width: '87%',
-  },
-  sigInButton: {
-    backgroundColor: '#F35C56',
-    borderRadius: 22,
-    marginTop: 30,
-    width: '87%',
-  },
-  loginButton: {
-    backgroundColor: '#F35C56',
-    borderRadius: 22,
-    marginTop: 30,
-    width: 310,
-  },
-  textbutton: {
-    color: 'white',
-    padding: 10,
-    textAlign: 'center',
-    fontFamily: 'Montserrat-Medium',
-    fontSize: 16,
-  },
-  whiteButton: {
-    backgroundColor: '#F3F3F3',
-    borderRadius: 22,
-    marginTop: 20,
-    width: '87%',
-  },
-  whiteText: {
-    color: '#F35C56',
-    padding: 10,
-    textAlign: 'center',
-    fontFamily: 'Montserrat-Medium',
-    fontSize: 16,
   },
   logo: {
     width: 300,
