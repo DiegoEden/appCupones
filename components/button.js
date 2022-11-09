@@ -1,42 +1,42 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 export const Boton = props => {
-  const {texto} = props;
+  const {texto, onPress} = props;
   return (
-    <Pressable style={styles.Button}>
+    <Pressable style={styles.Button} onPress={onPress}>
       <Text style={styles.textbutton}>{texto}</Text>
     </Pressable>
   );
 };
 
 export const MarginBoton = props => {
-  const {texto} = props;
+  const {texto, onPress} = props;
   return (
-    <Pressable style={styles.Button2}>
+    <Pressable style={styles.Button2} onPress={onPress}>
       <Text style={styles.textbutton}>{texto}</Text>
     </Pressable>
   );
 };
 
 export const WhiteButton = props => {
-  const {texto} = props;
+  const {texto, onPress} = props;
   return (
-    <Pressable style={styles.whiteButton}>
+    <Pressable style={styles.whiteButton} onPress={onPress}>
       <Text style={styles.whiteText}>{texto}</Text>
     </Pressable>
   );
 };
 
-
 export const LoginButton = props => {
-    const {texto} = props;
-    return (
-      <Pressable style={styles.loginButton}>
-        <Text style={styles.textbutton}>{texto}</Text>
-      </Pressable>
-    );
-  };
+  const {texto, onPress} = props;
+  return (
+    <TouchableOpacity style={styles.loginButton} onPress={onPress}>
+      <Text style={styles.textbutton}>{texto}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   textbutton: {
@@ -78,5 +78,4 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: '87%',
   },
-  
 });
