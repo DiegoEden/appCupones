@@ -3,10 +3,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Start from '../views/start';
 import LogIn from '../views/logIn';
-import SigInOpt from '../views/sigInOpt';
-import SigIn from '../views/sigIn';
+import SignInOpt from '../views/signInOpt';
+import SignIn from '../views/signIn';
 import {useColorScheme, StyleSheet, View} from 'react-native';
-import PhoneSigIn from '../views/phoneSigIn';
+import PhoneSignIn from '../views/phoneSignIn';
 import Home from '../views/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Main from '../views/main';
@@ -28,6 +28,9 @@ const RegisterStack = () => {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
           headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
           headerTintColor: theme === 'dark' ? 'white' : '#272459',
           headerShadowVisible: false,
         }}
@@ -39,22 +42,28 @@ const RegisterStack = () => {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
           headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
           headerTintColor: theme === 'dark' ? 'white' : '#272459',
           headerShadowVisible: false,
         }}
         name="Registrarme"
-        component={SigInOpt}></Stack.Screen>
+        component={SignInOpt}></Stack.Screen>
       <Stack.Screen
         options={{
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
           headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
           headerTintColor: theme === 'dark' ? 'white' : '#272459',
           headerShadowVisible: false,
         }}
         name="Regístrate"
-        component={SigIn}></Stack.Screen>
+        component={SignIn}></Stack.Screen>
       <Stack.Screen
         options={{
           headerStyle: {
@@ -65,7 +74,7 @@ const RegisterStack = () => {
           headerShadowVisible: false,
         }}
         name="Regístrate con tu teléfono"
-        component={PhoneSigIn}></Stack.Screen>
+        component={PhoneSignIn}></Stack.Screen>
       <Stack.Screen
         options={{headerShown: false}}
         name="index"
@@ -80,7 +89,10 @@ const MainTab = () => {
   return (
     <NavigationContainer
       style={[theme === 'dark' ? styles.dark : styles.light]}>
-      <Tab.Navigator >
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#F35C56',
+        }}>
         <Tab.Screen
           options={{
             headerShown: false,
@@ -90,14 +102,27 @@ const MainTab = () => {
           name="signUp"
           component={RegisterStack}></Tab.Screen>
         <Tab.Screen
-          options={{headerShown: false, tabBarVisible: false}}
+          options={{
+            headerShown: false,
+            tabBarVisible: false,
+            tabBarLabelStyle: {
+              fontSize: 12,
+              fontFamily: 'Montserrat-Bold',
+            },
+          }}
           name="Home"
           component={Main}></Tab.Screen>
-           <Tab.Screen
-          options={{headerShown: false, tabBarVisible: false}}
+        <Tab.Screen
+          options={{
+            headerShown: false,
+            tabBarVisible: false,
+            tabBarLabelStyle: {
+              fontSize: 12,
+              fontFamily: 'Montserrat-Bold',
+            },
+          }}
           name="Configuración"
-          component={Main}></Tab.Screen>
-          
+          component={LogIn}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );

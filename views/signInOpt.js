@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import {Text} from 'react-native';
 import {LabelForm} from '../components/label';
-import {MainInput} from '../components/input';
+import {MainInput, NumberInput} from '../components/input';
 import {LoginButton} from '../components/button';
-const SigInOpt = ({navigation}) => {
+const SignInOpt = ({navigation}) => {
   const theme = useColorScheme();
 
   const modo = Appearance.getColorScheme();
@@ -77,7 +77,7 @@ const SigInOpt = ({navigation}) => {
             </View>
             <LabelForm texto="Número de teléfono"></LabelForm>
             <View style={styles.center}>
-              <MainInput placeholder="Número de teléfono"></MainInput>
+              <NumberInput placeholder="Número de teléfono"></NumberInput>
             </View>
 
             <View style={styles.center}>
@@ -160,4 +160,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SigInOpt;
+export default SignInOpt;

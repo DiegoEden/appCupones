@@ -11,7 +11,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-const PhoneSigIn = ({navigation}) => {
+const PhoneSignIn = ({navigation}) => {
   const theme = useColorScheme();
   const modo = Appearance.getColorScheme();
 
@@ -149,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PhoneSigIn;
+export default PhoneSignIn;

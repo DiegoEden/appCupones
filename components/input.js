@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, useColorScheme} from 'react-native';
 
-export const MainInput = props => {
+export const PwdInput = props => {
   const theme = useColorScheme();
 
   const {placeholder} = props;
@@ -13,6 +13,35 @@ export const MainInput = props => {
       placeholderTextColor={'#C8C8D3'}
       textContentType="password"
       secureTextEntry={true}
+      cursorColor={'#F35C56'}></TextInput>
+  );
+};
+
+export const NumberInput = props => {
+  const theme = useColorScheme();
+
+  const {placeholder} = props;
+
+  return (
+    <TextInput
+      style={[styles.input, theme === 'dark' ? styles.darkInput : styles.input]}
+      placeholder={placeholder}
+      placeholderTextColor={'#C8C8D3'}
+      cursorColor={'#F35C56'}
+      keyboardType={'number-pad'}></TextInput>
+  );
+};
+
+export const MainInput = props => {
+  const theme = useColorScheme();
+
+  const {placeholder} = props;
+
+  return (
+    <TextInput
+      style={[styles.input, theme === 'dark' ? styles.darkInput : styles.input]}
+      placeholder={placeholder}
+      placeholderTextColor={'#C8C8D3'}
       cursorColor={'#F35C56'}></TextInput>
   );
 };

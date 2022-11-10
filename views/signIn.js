@@ -1,6 +1,6 @@
 import React from 'react';
 import {LabelForm} from '../components/label';
-import {MainInput} from '../components/input';
+import {MainInput, NumberInput, PwdInput} from '../components/input';
 import {Boton} from '../components/button';
 import {
   View,
@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import {useState} from 'react';
 
-const SigIn = ({navigation}) => {
+const SignIn = ({navigation}) => {
   const theme = useColorScheme();
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -64,17 +64,17 @@ const SigIn = ({navigation}) => {
             <LabelForm texto="Número de teléfono"></LabelForm>
 
             <View style={styles.center}>
-              <MainInput placeholder="Número de teléfono"></MainInput>
+              <NumberInput placeholder="Número de teléfono"></NumberInput>
             </View>
             <LabelForm texto="Contraseña"></LabelForm>
 
             <View style={styles.center}>
-              <MainInput placeholder="Contraseña"></MainInput>
+              <PwdInput placeholder="Contraseña"></PwdInput>
             </View>
             <LabelForm texto="Confirmar contraseña"></LabelForm>
 
             <View style={styles.center}>
-              <MainInput placeholder="Confirmar contraseña"></MainInput>
+              <PwdInput placeholder="Confirmar contraseña"></PwdInput>
             </View>
           </View>
           <View style={styles.badge}>
@@ -149,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SigIn;
+export default SignIn;
