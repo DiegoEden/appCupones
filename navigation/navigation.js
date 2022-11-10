@@ -10,6 +10,7 @@ import PhoneSignIn from '../views/phoneSignIn';
 import Home from '../views/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Main from '../views/main';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,7 +92,15 @@ const MainTab = () => {
       style={[theme === 'dark' ? styles.dark : styles.light]}>
       <Tab.Navigator
         screenOptions={{
+          tabBarStyle: {
+            backgroundColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+            borderTopWidth: 0,
+            elevation: 0,
+            height:55,
+          },
+
           tabBarActiveTintColor: '#F35C56',
+          tabBarInactiveTintColor: '#C8C8D3',
         }}>
         <Tab.Screen
           options={{
@@ -103,12 +112,24 @@ const MainTab = () => {
           component={RegisterStack}></Tab.Screen>
         <Tab.Screen
           options={{
-            headerShown: false,
-            tabBarVisible: false,
             tabBarLabelStyle: {
               fontSize: 12,
               fontFamily: 'Montserrat-Bold',
             },
+            tabBarIcon: ({color, size}) => (
+              <FontAwesome5
+                name="home"
+                color={color}
+                size={size}></FontAwesome5>
+            ),
+            headerStyle: {
+              backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            },
+            headerTitleStyle: {
+              display: 'none',
+            },
+            headerShadowVisible: false,
+            title: 'Inicio',
           }}
           name="Home"
           component={Main}></Tab.Screen>
@@ -120,9 +141,16 @@ const MainTab = () => {
               fontSize: 12,
               fontFamily: 'Montserrat-Bold',
             },
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <FontAwesome5
+                name="user-alt"
+                color={color}
+                size={size}></FontAwesome5>
+            ),
           }}
           name="Configuración"
-          component={LogIn}></Tab.Screen>
+          component={Main}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );

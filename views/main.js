@@ -1,14 +1,33 @@
 import React from 'react';
 import {View, useColorScheme, StyleSheet, Image, Text} from 'react-native';
 
+const Main = () => {
+  const theme = useColorScheme();
 
-const Main = () =>{
+  return (
+    <View
+      style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
+      <View style={styles.center}>
+        <Text>Hola mundo</Text>
+      </View>
+    </View>
+  );
+};
 
-    return( 
-        <View>
-            <Text>Hola mundo</Text>
-        </View>
-    )
-}
-
-export default Main
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  center: {
+    alignItems: 'center',
+  },
+  dark: {
+    backgroundColor: '#343434',
+    color: 'white',
+  },
+  light: {
+    backgroundColor: 'white',
+  },
+});
+export default Main;
