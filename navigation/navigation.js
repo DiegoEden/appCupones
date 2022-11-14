@@ -88,6 +88,27 @@ const RegisterStack = () => {
   );
 };
 
+const HomeStack = () => {
+  const theme = useColorScheme();
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+       options={{
+        headerStyle: {
+          backgroundColor: theme === 'dark' ? '#343434' : 'white',
+        },
+        headerTitleAlign: 'center',
+        headerTintColor: theme === 'dark' ? 'white' : '#272459',
+        headerShadowVisible: false,
+      }}
+        name="Inicio"
+        component={Main}></Stack.Screen>
+      
+    </Stack.Navigator>
+  );
+};
+
 const MainTab = () => {
   const theme = useColorScheme();
 
@@ -135,7 +156,7 @@ const MainTab = () => {
             title: 'Inicio',
           }}
           name="Home"
-          component={Main}></Tab.Screen>
+          component={HomeStack}></Tab.Screen>
         <Tab.Screen
           options={{
             headerShown: false,

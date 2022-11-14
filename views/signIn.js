@@ -101,7 +101,7 @@ const SignIn = ({navigation}) => {
 
 const styles = StyleSheet.create({
   sigInSwitch: {
-    marginLeft: 25,
+    marginLeft: '8%',
     marginTop: 10,
   },
   container: {
@@ -145,8 +145,7 @@ const styles = StyleSheet.create({
   badge: {
     flexDirection: 'row',
     paddingTop: 3,
-    marginLeft: 30,
-    marginEnd: 30,
+    marginLeft: '8%',
   },
 });
 
