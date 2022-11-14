@@ -17,7 +17,7 @@ const Main = ({navigation}) => {
       <View
       style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
       <View style={styles.center}>
-        <TouchableOpacity style={{marginTop:30}}
+        <TouchableOpacity style={{marginTop:10}}
           onPress={() => {
             navigation.navigate('Ventana2');
           }}>
@@ -177,8 +177,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   botones: {
-    marginLeft: 7,
-    marginEnd: 7,
+    marginLeft: '2%',
+    marginEnd: '2%',
   },
   titulo: {
     fontSize: 18,
@@ -190,8 +190,8 @@ const styles = StyleSheet.create({
     color: '#D6D6D6',
   },
   botones2: {
-    marginLeft: -2,
-    marginEnd: -2,
+    marginLeft: '-0.5%',
+    marginEnd: '-0.5%',
   },
 });
 export default Main;
