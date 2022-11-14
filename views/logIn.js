@@ -11,6 +11,7 @@ import {
   Appearance,
   StatusBar,
   ScrollView,
+
 } from 'react-native';
 
 const LogIn = ({navigation}) => {
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     elevation: 7,
     paddingBottom: 35,
     paddingTop: 30,
-    marginTop: 30,
+    marginTop: -10,
   },
   cardBadge: {
     marginLeft: 20,

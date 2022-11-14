@@ -11,6 +11,7 @@ import Home from '../views/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Main from '../views/main';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,7 +19,10 @@ const Tab = createBottomTabNavigator();
 const RegisterStack = () => {
   const theme = useColorScheme();
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        navigationBarColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+      }}>
       <Stack.Screen
         options={{headerShown: false, tabBarStyle: {display: 'none'}}}
         name="SigInMain"
@@ -96,7 +100,6 @@ const MainTab = () => {
             backgroundColor: theme === 'dark' ? '#343434' : '#F2F2F2',
             borderTopWidth: 0,
             elevation: 0,
-            height:55,
           },
 
           tabBarActiveTintColor: '#F35C56',
@@ -117,10 +120,10 @@ const MainTab = () => {
               fontFamily: 'Montserrat-Bold',
             },
             tabBarIcon: ({color, size}) => (
-              <FontAwesome5
+              <MaterialCommunityIcons
                 name="home"
                 color={color}
-                size={size}></FontAwesome5>
+                size={35}></MaterialCommunityIcons>
             ),
             headerStyle: {
               backgroundColor: theme === 'dark' ? '#343434' : 'white',
@@ -141,7 +144,7 @@ const MainTab = () => {
               fontSize: 12,
               fontFamily: 'Montserrat-Bold',
             },
-            tabBarLabel: '',
+            tabBarLabel: 'User',
             tabBarIcon: ({color, size}) => (
               <FontAwesome5
                 name="user-alt"

@@ -1,31 +1,30 @@
 import React, {useState} from 'react';
-import {Text, StyleSheet, Pressable} from 'react-native';
-import {TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 export const Boton = props => {
   const {texto, onPress} = props;
   return (
-    <Pressable style={styles.Button} onPress={onPress}>
+    <TouchableOpacity style={styles.Button} onPress={onPress}>
       <Text style={styles.textbutton}>{texto}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
 export const MarginBoton = props => {
   const {texto, onPress} = props;
   return (
-    <Pressable style={styles.Button2} onPress={onPress}>
+    <TouchableOpacity style={styles.Button2} onPress={onPress}>
       <Text style={styles.textbutton}>{texto}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
 export const WhiteButton = props => {
   const {texto, onPress} = props;
   return (
-    <Pressable style={styles.whiteButton} onPress={onPress}>
+    <TouchableOpacity style={styles.whiteButton} onPress={onPress}>
       <Text style={styles.whiteText}>{texto}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
   Button2: {
     backgroundColor: '#F35C56',
     borderRadius: 22,
-    marginTop: 60,
+    marginTop: 30,
     width: '87%',
   },
   whiteButton: {

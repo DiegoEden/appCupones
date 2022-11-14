@@ -30,8 +30,6 @@ const SignInOpt = ({navigation}) => {
     StatusBar.setBarStyle('default', true);
   }
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
         <View
           style={[
             styles.container,
@@ -81,11 +79,11 @@ const SignInOpt = ({navigation}) => {
             </View>
 
             <View style={styles.center}>
-              <LoginButton
+               {/* <LoginButton
                 texto="Continuar"
                 onPress={() => {
                   navigation.navigate('Regístrate con tu teléfono');
-                }}></LoginButton>
+                }}></LoginButton>  */}
               <LoginButton
                 texto="Crear cuenta"
                 onPress={() => {
@@ -94,8 +92,6 @@ const SignInOpt = ({navigation}) => {
             </View>
           </View>
         </View>
-      </>
-    </ScrollView>
   );
 };
 
@@ -118,7 +114,7 @@ const styles = StyleSheet.create({
     elevation: 7,
     paddingBottom: 35,
     paddingTop: 30,
-    marginTop: 30,
+    marginTop:-60,
   },
   center: {
     alignItems: 'center',
