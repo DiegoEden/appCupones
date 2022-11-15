@@ -19,7 +19,7 @@ const Main = ({navigation}) => {
       <View style={styles.center}>
         <TouchableOpacity style={{marginTop:10}}
           onPress={() => {
-            navigation.navigate('Ventana2');
+            navigation.navigate('Salud');
           }}>
           <Image source={require('../src/img/BannerHogar.png')}></Image>
         </TouchableOpacity>
@@ -28,7 +28,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -40,7 +40,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -52,7 +52,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -64,7 +64,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -87,7 +87,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones2}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -99,7 +99,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones2}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -111,7 +111,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones2}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={
@@ -123,7 +123,7 @@ const Main = ({navigation}) => {
           <TouchableOpacity
             style={styles.botones2}
             onPress={() => {
-              navigation.navigate('Ventana2');
+              navigation.navigate('Salud');
             }}>
             <Image
               source={

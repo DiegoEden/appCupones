@@ -12,6 +12,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Main from '../views/main';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Salud from '../views/salud';
+import Detalle from '../views/detalle';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,6 +34,11 @@ const RegisterStack = () => {
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontFamily: 'Montserrat-Bold',
@@ -46,6 +53,11 @@ const RegisterStack = () => {
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontFamily: 'Montserrat-Bold',
@@ -60,6 +72,11 @@ const RegisterStack = () => {
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#343434' : 'white',
           },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontFamily: 'Montserrat-Bold',
@@ -92,19 +109,89 @@ const HomeStack = () => {
   const theme = useColorScheme();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        navigationBarColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+      }}>
       <Stack.Screen
-       options={{
-        headerStyle: {
-          backgroundColor: theme === 'dark' ? '#343434' : 'white',
-        },
-        headerTitleAlign: 'center',
-        headerTintColor: theme === 'dark' ? 'white' : '#272459',
-        headerShadowVisible: false,
-      }}
+        options={{
+          headerStyle: {
+            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+          },
+
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+
+          headerTintColor: theme === 'dark' ? 'white' : '#272459',
+          tabBarStyle: {display: 'none'},
+          headerShadowVisible: false,
+          title: ' ',
+          headerSearchBarOptions: {
+            placeholder: 'Buscar',
+            fontFamily: 'Montserrat-Medium',
+            barTintColor: theme === 'dark' ? '#464646' : '#F0F1F5',
+            textColor: theme === 'dark' ? '#D6D6D6' : 'black',
+            hintTextColor: theme === 'dark' ? '#D6D6D6' : '#C8C8D3',
+            headerIconColor: theme === 'dark' ? '#D6D6D6' : '#272459',
+          },
+        }}
         name="Inicio"
         component={Main}></Stack.Screen>
-      
+      <Stack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+          },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
+          headerTintColor: theme === 'dark' ? 'white' : '#272459',
+          headerShadowVisible: false,
+          headerSearchBarOptions: {
+            placeholder: 'Buscar',
+            fontFamily: 'Montserrat-Medium',
+            barTintColor: theme === 'dark' ? '#464646' : '#F0F1F5',
+            textColor: theme === 'dark' ? '#D6D6D6' : 'black',
+            hintTextColor: theme === 'dark' ? '#D6D6D6' : '#C8C8D3',
+            headerIconColor: theme === 'dark' ? '#D6D6D6' : '#272459',
+          },
+        }}
+        name="Salud"
+        component={Salud}></Stack.Screen>
+      <Stack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+          },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
+          headerTintColor: theme === 'dark' ? 'white' : '#272459',
+          headerShadowVisible: false,
+          title: 'Detalle',
+          /* headerSearchBarOptions: {
+            placeholder: 'Buscar',
+            fontFamily: 'Montserrat-Medium',
+            barTintColor: theme === 'dark' ? '#464646' : '#F0F1F5',
+            textColor: theme === 'dark' ? '#D6D6D6' : 'black',
+            hintTextColor: theme === 'dark' ? '#D6D6D6' : '#C8C8D3',
+            headerIconColor: theme === 'dark' ? '#D6D6D6' : '#272459',
+          }, */
+        }}
+        name="Detalles del producto"
+        component={Detalle}></Stack.Screen>
     </Stack.Navigator>
   );
 };
@@ -136,6 +223,8 @@ const MainTab = () => {
           component={RegisterStack}></Tab.Screen>
         <Tab.Screen
           options={{
+            headerShown: false,
+            tabBarVisible: false,
             tabBarLabelStyle: {
               fontSize: 12,
               fontFamily: 'Montserrat-Bold',
@@ -153,7 +242,6 @@ const MainTab = () => {
               display: 'none',
             },
             headerShadowVisible: false,
-            title: 'Inicio',
           }}
           name="Home"
           component={HomeStack}></Tab.Screen>
@@ -174,7 +262,7 @@ const MainTab = () => {
             ),
           }}
           name="Configuración"
-          component={Main}></Tab.Screen>
+          component={HomeStack}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
