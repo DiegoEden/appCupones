@@ -108,14 +108,14 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {
     backgroundColor: 'white',
   },
   darkCard: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
   },
   center: {
     alignItems: 'center',

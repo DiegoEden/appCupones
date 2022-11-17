@@ -35,13 +35,21 @@ const Detalle = ({navigation}) => {
             styles.container,
             theme === 'dark' ? styles.dark : styles.light,
           ]}>
-          <Text
-            style={[
-              styles.titulo,
-              theme === 'dark' ? styles.darkTitle : styles.light,
-            ]}>
-            Producto
-          </Text>
+          <View style={styles.center}>
+            <Image source={require('../src/img/producto.png')}></Image>
+          </View>
+          <View style={theme === 'dark' ? styles.detalle : styles.light}>
+            <Text
+              style={[
+                styles.titulo,
+                theme === 'dark' ? styles.darkTitle : styles.light,
+              ]}>
+              Crema para masajes
+            </Text>
+            <View style={styles.center}>
+              <Image style={styles.divider} source={require('../src/img/divider.png')}></Image>
+            </View>
+          </View>
         </View>
       </>
     </ScrollView>
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
   },
 
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {
@@ -71,6 +79,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     color: '#75759E',
     marginLeft: '10%',
+    marginTop: '5%',
   },
   darkTitle: {
     color: '#D6D6D6',
@@ -83,6 +92,16 @@ const styles = StyleSheet.create({
     marginLeft: '-3%',
     marginEnd: '-3%',
   },
+  detalle: {
+    backgroundColor: '#343434',
+    borderTopLeftRadius: 20,
+    borderTopEndRadius: 20,
+    marginTop: '15%',
+  },
+  divider:{
+    marginTop: '10%',
+    marginBottom:'10%'
+  }
 });
 
 export default Detalle;

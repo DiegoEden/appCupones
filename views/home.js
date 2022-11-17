@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     height: 100,
   },
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   darkTitle: {
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   darkCard: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
   },
   h1: {
     color: '#272459',

@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {

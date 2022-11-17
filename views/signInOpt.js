@@ -134,13 +134,13 @@ const styles = StyleSheet.create({
     height: 44,
   },
   darkCard: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
   },
   darkTitle: {
     color: '#D6D6D6',
   },
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {

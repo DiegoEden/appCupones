@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import {LabelForm} from '../components/label';
 import {MainInput, NumberInput, PwdInput} from '../components/input';
 import {Boton} from '../components/button';
@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import {useState} from 'react';
 
-const SignIn = ({navigation}) => {
+const Profile = ({navigation}) => {
   const theme = useColorScheme();
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -39,16 +39,16 @@ const SignIn = ({navigation}) => {
             styles.container,
             theme === 'dark' ? styles.dark : styles.light,
           ]}>
+          <View style={styles.center}>
+            <Image
+              source={require('../src/img/logo2Dark.png')}
+              style={styles.imgSigIn}></Image>
+          </View>
           <View
             style={[
               styles.card,
               theme === 'dark' ? styles.darkCard : styles.light,
             ]}>
-            <View style={styles.center}>
-              <Image
-                source={require('../src/img/cuponLogo.png')}
-                style={styles.imgSigIn}></Image>
-            </View>
             <LabelForm texto="Usuario"></LabelForm>
 
             <View style={styles.center}>
@@ -71,27 +71,14 @@ const SignIn = ({navigation}) => {
             <View style={styles.center}>
               <PwdInput placeholder="Contraseña"></PwdInput>
             </View>
-            <LabelForm texto="Confirmar contraseña"></LabelForm>
-
-            <View style={styles.center}>
-              <PwdInput placeholder="Confirmar contraseña"></PwdInput>
-            </View>
           </View>
-          <View style={styles.badge}>
-            <LabelForm texto=" Acepto términos de servicio"></LabelForm>
 
-            <Switch
-              trackColor={{false: '#767577', true: '#F35C56'}}
-              thumbColor={isEnabled ? 'white' : '#f4f3f4'}
-              onValueChange={toggleSwitch}
-              value={isEnabled}
-              style={styles.sigInSwitch}
-            />
-          </View>
           <View style={styles.center}>
-            <Boton texto="Ingresar" onPress={() => {
-                  navigation.navigate('index');
-                }}></Boton>
+            <Boton
+              texto="Confirmar"
+              onPress={() => {
+                navigation.navigate('index');
+              }}></Boton>
           </View>
         </View>
       </>
@@ -100,14 +87,13 @@ const SignIn = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  sigInSwitch: {
-    marginLeft: '8%',
-    marginTop: 10,
-  },
+  
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginBottom:50
+    marginTop: 90,
+    marginBottom:20
+
   },
   card: {
     marginLeft: 20,
@@ -129,8 +115,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imgSigIn: {
-    width: 100,
-    height: 100,
+    width: '100%',
+    height: 350,
+    marginBottom:-90
   },
   dark: {
     backgroundColor: '#2A2929',
@@ -149,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignIn;
+export default Profile;

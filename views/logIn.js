@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   darkCard: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
   },
 });
 

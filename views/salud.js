@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
 
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
   light: {

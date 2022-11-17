@@ -5,7 +5,13 @@ import Start from '../views/start';
 import LogIn from '../views/logIn';
 import SignInOpt from '../views/signInOpt';
 import SignIn from '../views/signIn';
-import {useColorScheme, StyleSheet, View} from 'react-native';
+import {
+  useColorScheme,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import PhoneSignIn from '../views/phoneSignIn';
 import Home from '../views/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -14,16 +20,50 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Salud from '../views/salud';
 import Detalle from '../views/detalle';
+import Profile from '../views/profile';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const AddButton = ({children}) => {
+  const theme = useColorScheme();
+
+  return (
+    <TouchableOpacity
+      style={{
+        top: -20,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <View
+        style={{
+          height: 70,
+          width: 70,
+          borderRadius: 50,
+          backgroundColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
+        }}>
+        <View
+          style={{
+            height: 50,
+            width: 50,
+            borderRadius: 35,
+            backgroundColor: '#F35C56',
+            marginTop: 5,
+            marginLeft: '14%',
+          }}>
+          {children}
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const RegisterStack = () => {
   const theme = useColorScheme();
   return (
     <Stack.Navigator
       screenOptions={{
-        navigationBarColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+        navigationBarColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
       }}>
       <Stack.Screen
         options={{headerShown: false, tabBarStyle: {display: 'none'}}}
@@ -32,7 +72,7 @@ const RegisterStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerBackImageSource:
             theme === 'dark'
@@ -51,7 +91,7 @@ const RegisterStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerBackImageSource:
             theme === 'dark'
@@ -70,7 +110,7 @@ const RegisterStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerBackImageSource:
             theme === 'dark'
@@ -89,7 +129,7 @@ const RegisterStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerTitleAlign: 'center',
           headerTintColor: theme === 'dark' ? 'white' : '#272459',
@@ -111,12 +151,12 @@ const HomeStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        navigationBarColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+        navigationBarColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
       }}>
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
 
           headerBackImageSource:
@@ -142,7 +182,7 @@ const HomeStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerBackImageSource:
             theme === 'dark'
@@ -168,7 +208,7 @@ const HomeStack = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : 'white',
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
           headerBackImageSource:
             theme === 'dark'
@@ -205,7 +245,7 @@ const MainTab = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {
-            backgroundColor: theme === 'dark' ? '#343434' : '#F2F2F2',
+            backgroundColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
             borderTopWidth: 0,
             elevation: 0,
           },
@@ -236,7 +276,7 @@ const MainTab = () => {
                 size={35}></MaterialCommunityIcons>
             ),
             headerStyle: {
-              backgroundColor: theme === 'dark' ? '#343434' : 'white',
+              backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
             },
             headerTitleStyle: {
               display: 'none',
@@ -245,6 +285,38 @@ const MainTab = () => {
           }}
           name="Home"
           component={HomeStack}></Tab.Screen>
+        <Tab.Screen
+          options={{
+            headerShown: false,
+            tabBarVisible: false,
+            tabBarLabel: '',
+            tabBarLabelStyle: {
+              fontSize: 12,
+              fontFamily: 'Montserrat-Bold',
+            },
+            headerStyle: {
+              backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
+            },
+            headerTitleStyle: {
+              display: 'none',
+            },
+            headerShadowVisible: false,
+            tabBarIcon: ({}) => (
+              <Image
+                source={require('../src/img/add.png')}
+                resizeMode="contain"
+                style={{
+                  height: 20,
+                  width: 20,
+                  marginTop: '30%',
+                  marginEnd: '5%',
+                  marginLeft: '5%',
+                }}></Image>
+            ),
+            tabBarButton: props => <AddButton {...props}></AddButton>,
+          }}
+          name="Add"
+          component={Salud}></Tab.Screen>
         <Tab.Screen
           options={{
             headerShown: false,
@@ -262,7 +334,7 @@ const MainTab = () => {
             ),
           }}
           name="Configuración"
-          component={HomeStack}></Tab.Screen>
+          component={Profile}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -270,7 +342,7 @@ const MainTab = () => {
 
 const styles = StyleSheet.create({
   dark: {
-    backgroundColor: '#343434',
+    backgroundColor: '#2A2929',
     color: 'white',
   },
 
