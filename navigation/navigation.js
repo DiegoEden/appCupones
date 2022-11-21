@@ -21,42 +21,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Salud from '../views/salud';
 import Detalle from '../views/detalle';
 import Profile from '../views/profile';
-
+import {AddButton} from '../components/button';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-const AddButton = ({children}) => {
-  const theme = useColorScheme();
-
-  return (
-    <TouchableOpacity
-      style={{
-        top: -20,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <View
-        style={{
-          height: 70,
-          width: 70,
-          borderRadius: 50,
-          backgroundColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
-        }}>
-        <View
-          style={{
-            height: 50,
-            width: 50,
-            borderRadius: 35,
-            backgroundColor: '#F35C56',
-            marginTop: 5,
-            marginLeft: '14%',
-          }}>
-          {children}
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-};
 
 const RegisterStack = () => {
   const theme = useColorScheme();

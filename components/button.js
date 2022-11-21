@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, useColorScheme, View} from 'react-native';
 
 export const Boton = props => {
   const {texto, onPress} = props;
@@ -33,6 +33,39 @@ export const LoginButton = props => {
   return (
     <TouchableOpacity style={styles.loginButton} onPress={onPress}>
       <Text style={styles.textbutton}>{texto}</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const AddButton = ({children}) => {
+  const theme = useColorScheme();
+
+  return (
+    <TouchableOpacity
+      style={{
+        top: -20,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <View
+        style={{
+          height: 70,
+          width: 70,
+          borderRadius: 50,
+          backgroundColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
+        }}>
+        <View
+          style={{
+            height: 50,
+            width: 50,
+            borderRadius: 35,
+            backgroundColor: '#F35C56',
+            marginTop: 5,
+            marginLeft: '14%',
+          }}>
+          {children}
+        </View>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -78,3 +111,7 @@ const styles = StyleSheet.create({
     width: '87%',
   },
 });
+
+
+
+
