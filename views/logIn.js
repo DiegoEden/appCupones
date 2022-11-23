@@ -86,6 +86,7 @@ const LogIn = ({navigation}) => {
 const styles = StyleSheet.create({
   switch: {
     marginTop: 10,
+    marginLeft: '2%',
   },
   container: {
     flex: 1,

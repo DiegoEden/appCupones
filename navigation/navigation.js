@@ -5,6 +5,7 @@ import Start from '../views/start';
 import LogIn from '../views/logIn';
 import SignInOpt from '../views/signInOpt';
 import SignIn from '../views/signIn';
+import History from '../views/history';
 import {
   useColorScheme,
   StyleSheet,
@@ -24,6 +25,7 @@ import Profile from '../views/profile';
 import {AddButton} from '../components/button';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
 
 const RegisterStack = () => {
   const theme = useColorScheme();
@@ -98,6 +100,11 @@ const RegisterStack = () => {
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+
           headerTitleAlign: 'center',
           headerTintColor: theme === 'dark' ? 'white' : '#272459',
           headerShadowVisible: false,
@@ -199,13 +206,31 @@ const HomeStack = () => {
         }}
         name="Detalles del producto"
         component={Detalle}></Stack.Screen>
+      <Stack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
+          },
+          title: 'Mis cupones',
+          headerBackImageSource:
+            theme === 'dark'
+              ? require('../src/img/chevOscuro.png')
+              : require('../src/img/chev.png'),
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-Bold',
+          },
+          headerTintColor: theme === 'dark' ? 'white' : '#272459',
+          headerShadowVisible: false,
+        }}
+        name="Historial"
+        component={History}></Stack.Screen>
     </Stack.Navigator>
   );
 };
 
 const MainTab = () => {
   const theme = useColorScheme();
-
   return (
     <NavigationContainer
       style={[theme === 'dark' ? styles.dark : styles.light]}>
@@ -283,7 +308,7 @@ const MainTab = () => {
             tabBarButton: props => <AddButton {...props}></AddButton>,
           }}
           name="Add"
-          component={Salud}></Tab.Screen>
+          component={History}></Tab.Screen>
         <Tab.Screen
           options={{
             headerShown: false,

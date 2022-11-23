@@ -1,6 +1,13 @@
 import React from 'react';
-import {View, useColorScheme, StyleSheet, Image, Text} from 'react-native';
+import {
+  View,
+  useColorScheme,
+  StyleSheet,
+  Image,
+  Text,
+} from 'react-native';
 import {MarginBoton, Boton} from '../components/button';
+
 
 const Home = ({navigation}) => {
   const theme = useColorScheme();
