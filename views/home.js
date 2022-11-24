@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  View,
-  useColorScheme,
-  StyleSheet,
-  Image,
-  Text,
-} from 'react-native';
+import {View, useColorScheme, StyleSheet, Image, Text} from 'react-native';
 import {MarginBoton, Boton} from '../components/button';
-
+import {SubTitle, Title} from '../components/label';
 
 const Home = ({navigation}) => {
   const theme = useColorScheme();
@@ -23,18 +17,16 @@ const Home = ({navigation}) => {
               ? require('../src/img/logo2.png')
               : require('../src/img/logo2Dark.png')
           }></Image>
-        <Text
-          style={[styles.h1, theme === 'dark' ? styles.dark : styles.light]}>
-          Cupones
-        </Text>
+
+        <Title texto="Cupones"></Title>
+
+        <SubTitle texto="Elegir cupones, simplemente seleccione y canjea."></SubTitle>
         <Text
           style={[
             styles.titulo,
             styles.margin,
             theme === 'dark' ? styles.darkTitle : styles.light,
-          ]}>
-          Elegir cupones, simplemente seleccione y canjea.
-        </Text>
+          ]}></Text>
         <MarginBoton
           texto="Empezar"
           onPress={() => {
@@ -61,36 +53,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#2A2929',
     color: 'white',
   },
-  darkTitle: {
-    color: '#D6D6D6',
-  },
   light: {
     backgroundColor: 'white',
   },
   darkCard: {
     backgroundColor: '#2A2929',
   },
-  h1: {
-    color: '#272459',
-    marginTop: -70,
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 24,
-  },
-  titulo: {
-    fontSize: 18,
-    marginTop: 30,
-    fontFamily: 'Montserrat-Medium',
-    textAlign: 'center',
-    color: '#75759E',
-    marginBottom: 30,
-  },
   logo2: {
     width: '100%',
     height: '70%',
-  },
-  margin: {
-    marginLeft: 15,
-    marginEnd: 15,
   },
 });
 

@@ -6,13 +6,7 @@ import LogIn from '../views/logIn';
 import SignInOpt from '../views/signInOpt';
 import SignIn from '../views/signIn';
 import History from '../views/history';
-import {
-  useColorScheme,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {useColorScheme, StyleSheet, View, Image} from 'react-native';
 import PhoneSignIn from '../views/phoneSignIn';
 import Home from '../views/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -25,7 +19,6 @@ import Profile from '../views/profile';
 import {AddButton} from '../components/button';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
 
 const RegisterStack = () => {
   const theme = useColorScheme();
@@ -241,7 +234,6 @@ const MainTab = () => {
             borderTopWidth: 0,
             elevation: 0,
           },
-
           tabBarActiveTintColor: '#F35C56',
           tabBarInactiveTintColor: '#C8C8D3',
         }}>

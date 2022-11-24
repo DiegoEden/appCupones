@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 const Start = ({navigation}) => {
-
   const modo = Appearance.getColorScheme();
 
   if (modo === 'dark') {

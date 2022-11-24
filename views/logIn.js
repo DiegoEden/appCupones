@@ -11,7 +11,10 @@ import {
   Appearance,
   StatusBar,
   ScrollView,
-
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
 } from 'react-native';
 
 const LogIn = ({navigation}) => {
@@ -32,54 +35,63 @@ const LogIn = ({navigation}) => {
     StatusBar.setBarStyle('default', true);
   }
   return (
-    <View
-      style={[styles.container, theme === 'dark' ? styles.dark : styles.light]}>
-      <View
-        style={[
-          styles.card,
-          theme === 'dark' ? styles.darkCard : styles.light,
-        ]}>
-        <View style={styles.center}>
-          <Image
-            source={require('../src/img/cuponLogo.png')}
-            style={styles.imgLogin}></Image>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View
+          style={[
+            styles.container,
+            theme === 'dark' ? styles.dark : styles.light,
+          ]}>
+          <View
+            style={[
+              styles.card,
+              theme === 'dark' ? styles.darkCard : styles.light,
+            ]}>
+            <View style={styles.center}>
+              <Image
+                source={require('../src/img/cuponLogo.png')}
+                style={styles.imgLogin}></Image>
+            </View>
+
+            <LabelForm texto="Usuario"></LabelForm>
+            <View style={styles.center}>
+              <MainInput placeholder="Nombre de usuario"></MainInput>
+            </View>
+            <LabelForm texto="Contraseña"></LabelForm>
+
+            <View style={styles.center}>
+              <PwdInput placeholder="Contraseña"></PwdInput>
+            </View>
+          </View>
+
+          <View style={styles.center}>
+            <MarginBoton
+              texto="Ingresar"
+              onPress={() => {
+                navigation.navigate('index');
+              }}></MarginBoton>
+          </View>
+
+          <View
+            style={[
+              styles.cardBadge,
+              theme === 'dark' ? styles.darkCard : styles.light,
+            ]}>
+            <LabelForm texto="Olvidaste tu usuario o contraseña"></LabelForm>
+
+            <Switch
+              trackColor={{false: '#767577', true: '#F35C56'}}
+              thumbColor={isEnabled ? 'white' : '#f4f3f4'}
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+              style={styles.switch}
+            />
+          </View>
         </View>
-
-        <LabelForm texto="Usuario"></LabelForm>
-        <View style={styles.center}>
-          <MainInput placeholder="Nombre de usuario"></MainInput>
-        </View>
-        <LabelForm texto="Contraseña"></LabelForm>
-
-        <View style={styles.center}>
-          <PwdInput placeholder="Contraseña"></PwdInput>
-        </View>
-      </View>
-
-      <View style={styles.center}>
-        <MarginBoton
-          texto="Ingresar"
-          onPress={() => {
-            navigation.navigate('index');
-          }}></MarginBoton>
-      </View>
-
-      <View
-        style={[
-          styles.cardBadge,
-          theme === 'dark' ? styles.darkCard : styles.light,
-        ]}>
-        <LabelForm texto="Olvidaste tu usuario o contraseña"></LabelForm>
-
-        <Switch
-          trackColor={{false: '#767577', true: '#F35C56'}}
-          thumbColor={isEnabled ? 'white' : '#f4f3f4'}
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-          style={styles.switch}
-        />
-      </View>
-    </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 

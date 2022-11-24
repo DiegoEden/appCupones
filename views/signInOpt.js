@@ -4,10 +4,14 @@ import {
   useColorScheme,
   StyleSheet,
   Image,
-  Pressable,
+  TouchableOpacity,
   Appearance,
   StatusBar,
-  ScrollView
+  ScrollView,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
 } from 'react-native';
 import {Text} from 'react-native';
 import {LabelForm} from '../components/label';
@@ -30,6 +34,11 @@ const SignInOpt = ({navigation}) => {
     StatusBar.setBarStyle('default', true);
   }
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}
+      enabled  keyboardVerticalOffset={50}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View
           style={[
             styles.container,
@@ -54,23 +63,23 @@ const SignInOpt = ({navigation}) => {
               </Text>
 
               <View style={styles.row}>
-                <Pressable>
+                <TouchableOpacity>
                   <Image
                     style={styles.loginIcons}
                     source={require('../src/img/icon-google.png')}></Image>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable>
+                <TouchableOpacity>
                   <Image
                     style={styles.loginIcons}
                     source={require('../src/img/icon-facebook.png')}></Image>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable>
+                <TouchableOpacity>
                   <Image
                     style={styles.loginIcons}
                     source={require('../src/img/icon-apple.png')}></Image>
-                </Pressable>
+                </TouchableOpacity>
               </View>
             </View>
             <LabelForm texto="Número de teléfono"></LabelForm>
@@ -79,7 +88,7 @@ const SignInOpt = ({navigation}) => {
             </View>
 
             <View style={styles.center}>
-               {/* <LoginButton
+              {/* <LoginButton
                 texto="Continuar"
                 onPress={() => {
                   navigation.navigate('Regístrate con tu teléfono');
@@ -92,6 +101,8 @@ const SignInOpt = ({navigation}) => {
             </View>
           </View>
         </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -113,8 +124,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 7,
     paddingBottom: 35,
+    marginTop: -80,
     paddingTop: 30,
-    marginTop:-60,
   },
   center: {
     alignItems: 'center',

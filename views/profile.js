@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React, {Profiler} from 'react';
 import {LabelForm} from '../components/label';
 import {MainInput, NumberInput, PwdInput} from '../components/input';
 import {Boton} from '../components/button';
@@ -11,10 +11,27 @@ import {
   Switch,
   Appearance,
   StatusBar,
+  BackHandler,
 } from 'react-native';
 import {useState} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 
 const Profile = ({navigation}) => {
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true;
+      };
+
+      // Add Event Listener for hardwareBackPress
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => {
+        // Once the Screen gets blur Remove Event Listener
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      };
+    }, []),
+  );
   const theme = useColorScheme();
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -87,13 +104,11 @@ const Profile = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  
   container: {
     flex: 1,
     justifyContent: 'center',
     marginTop: 90,
-    marginBottom:20
-
+    marginBottom: 20,
   },
   card: {
     marginLeft: 20,
@@ -117,7 +132,7 @@ const styles = StyleSheet.create({
   imgSigIn: {
     width: '100%',
     height: 350,
-    marginBottom:-90
+    marginBottom: -90,
   },
   dark: {
     backgroundColor: '#2A2929',
