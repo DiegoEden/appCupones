@@ -72,7 +72,7 @@ export const AddButton = props => {
             width: 50,
             borderRadius: 35,
             backgroundColor: '#F35C56',
-            marginTop: 6,
+            marginTop: 8,
           }}>
           {children}
         </View>

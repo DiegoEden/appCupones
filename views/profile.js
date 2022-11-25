@@ -12,9 +12,12 @@ import {
   Appearance,
   StatusBar,
   BackHandler,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
+import {KeyboardAvoidingView} from 'react-native';
 
 const Profile = ({navigation}) => {
   useFocusEffect(
@@ -33,8 +36,6 @@ const Profile = ({navigation}) => {
     }, []),
   );
   const theme = useColorScheme();
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   const modo = Appearance.getColorScheme();
 
   if (modo === 'dark') {
@@ -49,57 +50,65 @@ const Profile = ({navigation}) => {
     StatusBar.setBarStyle('default', true);
   }
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
-        <View
-          style={[
-            styles.container,
-            theme === 'dark' ? styles.dark : styles.light,
-          ]}>
-          <View style={styles.center}>
-            <Image
-              source={require('../src/img/logo2Dark.png')}
-              style={styles.imgSigIn}></Image>
-          </View>
-          <View
-            style={[
-              styles.card,
-              theme === 'dark' ? styles.darkCard : styles.light,
-            ]}>
-            <LabelForm texto="Usuario"></LabelForm>
+    <KeyboardAvoidingView
+      style={theme === 'dark' ? styles.dark : styles.light}
+      behavior="padding"
+      enabled
+      keyboardVerticalOffset={20}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
+          <>
+            <View
+              style={[
+                styles.container,
+                theme === 'dark' ? styles.dark : styles.light,
+              ]}>
+              <View style={styles.center}>
+                <Image
+                  source={require('../src/img/logo2Dark.png')}
+                  style={styles.imgSigIn}></Image>
+              </View>
+              <View
+                style={[
+                  styles.card,
+                  theme === 'dark' ? styles.darkCard : styles.light,
+                ]}>
+                <LabelForm texto="Usuario"></LabelForm>
 
-            <View style={styles.center}>
-              <MainInput placeholder="Nombre de usuario"></MainInput>
+                <View style={styles.center}>
+                  <MainInput placeholder="Nombre de usuario"></MainInput>
+                </View>
+
+                <LabelForm texto="Email"></LabelForm>
+
+                <View style={styles.center}>
+                  <MainInput placeholder="Ejemplo@mail.com"></MainInput>
+                </View>
+
+                <LabelForm texto="Número de teléfono"></LabelForm>
+
+                <View style={styles.center}>
+                  <NumberInput placeholder="Número de teléfono"></NumberInput>
+                </View>
+                <LabelForm texto="Contraseña"></LabelForm>
+
+                <View style={styles.center}>
+                  <PwdInput placeholder="Contraseña"></PwdInput>
+                </View>
+              </View>
+
+              <View style={styles.center}>
+                <Boton
+                  texto="Confirmar"
+                  onPress={() => {
+                    navigation.navigate('index');
+                  }}></Boton>
+              </View>
             </View>
-
-            <LabelForm texto="Email"></LabelForm>
-
-            <View style={styles.center}>
-              <MainInput placeholder="Ejemplo@mail.com"></MainInput>
-            </View>
-
-            <LabelForm texto="Número de teléfono"></LabelForm>
-
-            <View style={styles.center}>
-              <NumberInput placeholder="Número de teléfono"></NumberInput>
-            </View>
-            <LabelForm texto="Contraseña"></LabelForm>
-
-            <View style={styles.center}>
-              <PwdInput placeholder="Contraseña"></PwdInput>
-            </View>
-          </View>
-
-          <View style={styles.center}>
-            <Boton
-              texto="Confirmar"
-              onPress={() => {
-                navigation.navigate('index');
-              }}></Boton>
-          </View>
-        </View>
-      </>
-    </ScrollView>
+          </>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
