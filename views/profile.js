@@ -18,8 +18,11 @@ import {
 import {useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {KeyboardAvoidingView} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {THEME_MODE} from '../App';
 
 const Profile = ({navigation}) => {
+
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {

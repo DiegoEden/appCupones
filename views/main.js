@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   BackHandler,
+  Button,
 } from 'react-native';
 import {TouchableOpacity, Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
@@ -105,7 +106,7 @@ const Main = ({navigation}) => {
               styles.titulo,
               theme === 'dark' ? styles.darkTitle : styles.light,
             ]}>
-            Eventos
+            Eventos{' '}
           </Text>
           <View style={styles.center}>
             <ScrollView
