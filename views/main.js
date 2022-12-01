@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {TouchableOpacity, Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
+import {CenterView, CustomScrollView} from '../components/containers';
 
 const Main = ({navigation}) => {
   useFocusEffect(
@@ -31,157 +32,151 @@ const Main = ({navigation}) => {
   );
   const theme = useColorScheme();
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
-        <View
+    <CustomScrollView>
+      <View
+        style={[
+          styles.container,
+          theme === 'dark' ? styles.dark : styles.light,
+        ]}>
+        <CenterView>
+          <TouchableOpacity
+            style={{marginTop: 10}}
+            onPress={() => {
+              navigation.navigate('Salud');
+            }}>
+            <Image source={require('../src/img/BannerHogar.png')}></Image>
+          </TouchableOpacity>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={styles.row}>
+              <TouchableOpacity
+                style={styles.botones}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/item.png')
+                      : require('../src/img/itemDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/item.png')
+                      : require('../src/img/itemDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/item.png')
+                      : require('../src/img/itemDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/item.png')
+                      : require('../src/img/itemDark.png')
+                  }></Image>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </CenterView>
+        <Text
           style={[
-            styles.container,
-            theme === 'dark' ? styles.dark : styles.light,
+            styles.titulo,
+            theme === 'dark' ? styles.darkTitle : styles.light,
           ]}>
-          <View style={styles.center}>
-            <TouchableOpacity
-              style={{marginTop: 10}}
-              onPress={() => {
-                navigation.navigate('Salud');
-              }}>
-              <Image source={require('../src/img/BannerHogar.png')}></Image>
-            </TouchableOpacity>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}>
-              <View style={styles.row}>
-                <TouchableOpacity
-                  style={styles.botones}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/item.png')
-                        : require('../src/img/itemDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/item.png')
-                        : require('../src/img/itemDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/item.png')
-                        : require('../src/img/itemDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/item.png')
-                        : require('../src/img/itemDark.png')
-                    }></Image>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
-          <Text
-            style={[
-              styles.titulo,
-              theme === 'dark' ? styles.darkTitle : styles.light,
-            ]}>
-            Eventos{' '}
-          </Text>
-          <View style={styles.center}>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}>
-              <View style={styles.row}>
-                <TouchableOpacity
-                  style={styles.botones2}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/eventos.png')
-                        : require('../src/img/eventosDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones2}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/eventos.png')
-                        : require('../src/img/eventosDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones2}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/eventos.png')
-                        : require('../src/img/eventosDark.png')
-                    }></Image>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.botones2}
-                  onPress={() => {
-                    navigation.navigate('Salud');
-                  }}>
-                  <Image
-                    source={
-                      theme === 'light'
-                        ? require('../src/img/eventos.png')
-                        : require('../src/img/eventosDark.png')
-                    }></Image>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
-          <Text
-            style={[
-              styles.titulo,
-              theme === 'dark' ? styles.darkTitle : styles.light,
-            ]}>
-            Cupones activos
-          </Text>
-          <View style={styles.center}>
-            <Image
-              source={
-                theme === 'light'
-                  ? require('../src/img/cupon.png')
-                  : require('../src/img/cuponDark.png')
-              }></Image>
-          </View>
-        </View>
-      </>
-    </ScrollView>
+          Eventos{' '}
+        </Text>
+        <CenterView>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={styles.row}>
+              <TouchableOpacity
+                style={styles.botones2}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/eventos.png')
+                      : require('../src/img/eventosDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones2}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/eventos.png')
+                      : require('../src/img/eventosDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones2}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/eventos.png')
+                      : require('../src/img/eventosDark.png')
+                  }></Image>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.botones2}
+                onPress={() => {
+                  navigation.navigate('Salud');
+                }}>
+                <Image
+                  source={
+                    theme === 'light'
+                      ? require('../src/img/eventos.png')
+                      : require('../src/img/eventosDark.png')
+                  }></Image>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </CenterView>
+        <Text
+          style={[
+            styles.titulo,
+            theme === 'dark' ? styles.darkTitle : styles.light,
+          ]}>
+          Cupones activos
+        </Text>
+        <CenterView>
+          <Image
+            source={
+              theme === 'light'
+                ? require('../src/img/cupon.png')
+                : require('../src/img/cuponDark.png')
+            }></Image>
+        </CenterView>
+      </View>
+    </CustomScrollView>
   );
 };
 

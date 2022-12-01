@@ -16,6 +16,7 @@ import {
   Keyboard,
   Platform,
 } from 'react-native';
+import {CenterView} from '../components/containers';
 
 const LogIn = ({navigation}) => {
   const theme = useColorScheme();
@@ -49,30 +50,32 @@ const LogIn = ({navigation}) => {
               styles.card,
               theme === 'dark' ? styles.darkCard : styles.light,
             ]}>
-            <View style={styles.center}>
+            <CenterView>
               <Image
                 source={require('../src/img/cuponLogo.png')}
                 style={styles.imgLogin}></Image>
-            </View>
+            </CenterView>
 
             <LabelForm texto="Usuario"></LabelForm>
-            <View style={styles.center}>
+
+            <CenterView>
               <MainInput placeholder="Nombre de usuario"></MainInput>
-            </View>
+            </CenterView>
+
             <LabelForm texto="Contraseña"></LabelForm>
 
-            <View style={styles.center}>
+            <CenterView>
               <PwdInput placeholder="Contraseña"></PwdInput>
-            </View>
+            </CenterView>
           </View>
 
-          <View style={styles.center}>
+          <CenterView>
             <MarginBoton
               texto="Ingresar"
               onPress={() => {
                 navigation.navigate('index');
               }}></MarginBoton>
-          </View>
+          </CenterView>
 
           <View
             style={[
@@ -145,9 +148,7 @@ const styles = StyleSheet.create({
   light: {
     backgroundColor: 'white',
   },
-  center: {
-    alignItems: 'center',
-  },
+
   imgLogin: {
     width: 200,
     height: 200,

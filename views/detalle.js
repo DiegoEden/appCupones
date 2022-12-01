@@ -10,6 +10,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import {CenterView, CustomScrollView} from '../components/containers';
 
 const Detalle = ({navigation}) => {
   const theme = useColorScheme();
@@ -28,31 +29,32 @@ const Detalle = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
-        <View
-          style={[
-            styles.container,
-            theme === 'dark' ? styles.dark : styles.light,
-          ]}>
-          <View style={styles.center}>
-            <Image source={require('../src/img/producto.png')}></Image>
-          </View>
-          <View style={theme === 'dark' ? styles.detalle : styles.light}>
-            <Text
-              style={[
-                styles.titulo,
-                theme === 'dark' ? styles.darkTitle : styles.light,
-              ]}>
-              Crema para masajes
-            </Text>
-            <View style={styles.center}>
-              <Image style={styles.divider} source={require('../src/img/divider.png')}></Image>
-            </View>
-          </View>
+    <CustomScrollView>
+      <View
+        style={[
+          styles.container,
+          theme === 'dark' ? styles.dark : styles.light,
+        ]}>
+        <CenterView>
+          <Image source={require('../src/img/producto.png')}></Image>
+        </CenterView>
+
+        <View style={theme === 'dark' ? styles.detalle : styles.light}>
+          <Text
+            style={[
+              styles.titulo,
+              theme === 'dark' ? styles.darkTitle : styles.light,
+            ]}>
+            Crema para masajes
+          </Text>
+          <CenterView>
+            <Image
+              style={styles.divider}
+              source={require('../src/img/divider.png')}></Image>
+          </CenterView>
         </View>
-      </>
-    </ScrollView>
+      </View>
+    </CustomScrollView>
   );
 };
 
@@ -98,10 +100,10 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 20,
     marginTop: '15%',
   },
-  divider:{
+  divider: {
     marginTop: '10%',
-    marginBottom:'10%'
-  }
+    marginBottom: '10%',
+  },
 });
 
 export default Detalle;

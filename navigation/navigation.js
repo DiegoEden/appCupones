@@ -20,13 +20,22 @@ import {AddButton} from '../components/button';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const RegisterStack = () => {
+const StackNavigator = ({children}) => {
   const theme = useColorScheme();
   return (
     <Stack.Navigator
       screenOptions={{
         navigationBarColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
       }}>
+      {children}
+    </Stack.Navigator>
+  );
+};
+
+const RegisterStack = () => {
+  const theme = useColorScheme();
+  return (
+    <StackNavigator>
       <Stack.Screen
         options={{headerShown: false, tabBarStyle: {display: 'none'}}}
         name="SigInMain"
@@ -108,7 +117,7 @@ const RegisterStack = () => {
         options={{headerShown: false}}
         name="index"
         component={Home}></Stack.Screen>
-    </Stack.Navigator>
+    </StackNavigator>
   );
 };
 
@@ -116,16 +125,12 @@ const HomeStack = () => {
   const theme = useColorScheme();
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        navigationBarColor: theme === 'dark' ? '#2A2929' : '#F2F2F2',
-      }}>
+    <StackNavigator>
       <Stack.Screen
         options={{
           headerStyle: {
             backgroundColor: theme === 'dark' ? '#2A2929' : 'white',
           },
-
           headerBackImageSource:
             theme === 'dark'
               ? require('../src/img/chevOscuro.png')
@@ -218,7 +223,7 @@ const HomeStack = () => {
         }}
         name="Historial"
         component={History}></Stack.Screen>
-    </Stack.Navigator>
+    </StackNavigator>
   );
 };
 

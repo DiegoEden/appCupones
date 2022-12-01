@@ -17,6 +17,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import {useState} from 'react';
+import {CustomScrollView} from '../components/containers';
 
 const SignIn = ({navigation}) => {
   const theme = useColorScheme();
@@ -38,74 +39,74 @@ const SignIn = ({navigation}) => {
   return (
     <KeyboardAvoidingView
       style={theme === 'dark' ? styles.dark : styles.light}
-      behavior="padding" enabled  keyboardVerticalOffset={100}>
+      behavior="padding"
+      enabled
+      keyboardVerticalOffset={100}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-          <>
+        <CustomScrollView>
+          <View
+            style={[
+              styles.container,
+              theme === 'dark' ? styles.dark : styles.light,
+            ]}>
             <View
               style={[
-                styles.container,
-                theme === 'dark' ? styles.dark : styles.light,
+                styles.card,
+                theme === 'dark' ? styles.darkCard : styles.light,
               ]}>
-              <View
-                style={[
-                  styles.card,
-                  theme === 'dark' ? styles.darkCard : styles.light,
-                ]}>
-                <View style={styles.center}>
-                  <Image
-                    source={require('../src/img/cuponLogo.png')}
-                    style={styles.imgSigIn}></Image>
-                </View>
-                <LabelForm texto="Usuario"></LabelForm>
-
-                <View style={styles.center}>
-                  <MainInput placeholder="Nombre de usuario"></MainInput>
-                </View>
-
-                <LabelForm texto="Email"></LabelForm>
-
-                <View style={styles.center}>
-                  <MainInput placeholder="Ejemplo@mail.com"></MainInput>
-                </View>
-
-                <LabelForm texto="Número de teléfono"></LabelForm>
-
-                <View style={styles.center}>
-                  <NumberInput placeholder="Número de teléfono"></NumberInput>
-                </View>
-                <LabelForm texto="Contraseña"></LabelForm>
-
-                <View style={styles.center}>
-                  <PwdInput placeholder="Contraseña"></PwdInput>
-                </View>
-                <LabelForm texto="Confirmar contraseña"></LabelForm>
-
-                <View style={styles.center}>
-                  <PwdInput placeholder="Confirmar contraseña"></PwdInput>
-                </View>
-              </View>
-              <View style={styles.badge}>
-                <LabelForm texto=" Acepto términos de servicio"></LabelForm>
-
-                <Switch
-                  trackColor={{false: '#767577', true: '#F35C56'}}
-                  thumbColor={isEnabled ? 'white' : '#f4f3f4'}
-                  onValueChange={toggleSwitch}
-                  value={isEnabled}
-                  style={styles.sigInSwitch}
-                />
-              </View>
               <View style={styles.center}>
-                <Boton
-                  texto="Ingresar"
-                  onPress={() => {
-                    navigation.navigate('index');
-                  }}></Boton>
+                <Image
+                  source={require('../src/img/cuponLogo.png')}
+                  style={styles.imgSigIn}></Image>
+              </View>
+              <LabelForm texto="Usuario"></LabelForm>
+
+              <View style={styles.center}>
+                <MainInput placeholder="Nombre de usuario"></MainInput>
+              </View>
+
+              <LabelForm texto="Email"></LabelForm>
+
+              <View style={styles.center}>
+                <MainInput placeholder="Ejemplo@mail.com"></MainInput>
+              </View>
+
+              <LabelForm texto="Número de teléfono"></LabelForm>
+
+              <View style={styles.center}>
+                <NumberInput placeholder="Número de teléfono"></NumberInput>
+              </View>
+              <LabelForm texto="Contraseña"></LabelForm>
+
+              <View style={styles.center}>
+                <PwdInput placeholder="Contraseña"></PwdInput>
+              </View>
+              <LabelForm texto="Confirmar contraseña"></LabelForm>
+
+              <View style={styles.center}>
+                <PwdInput placeholder="Confirmar contraseña"></PwdInput>
               </View>
             </View>
-          </>
-        </ScrollView>
+            <View style={styles.badge}>
+              <LabelForm texto=" Acepto términos de servicio"></LabelForm>
+
+              <Switch
+                trackColor={{false: '#767577', true: '#F35C56'}}
+                thumbColor={isEnabled ? 'white' : '#f4f3f4'}
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+                style={styles.sigInSwitch}
+              />
+            </View>
+            <View style={styles.center}>
+              <Boton
+                texto="Ingresar"
+                onPress={() => {
+                  navigation.navigate('index');
+                }}></Boton>
+            </View>
+          </View>
+        </CustomScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );

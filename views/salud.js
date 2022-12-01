@@ -10,6 +10,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import {CustomScrollView} from '../components/containers';
 
 const Salud = ({navigation}) => {
   const theme = useColorScheme();
@@ -28,106 +29,104 @@ const Salud = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
-        <View
+    <CustomScrollView>
+      <View
+        style={[
+          styles.container,
+          theme === 'dark' ? styles.dark : styles.light,
+        ]}>
+        <Text
           style={[
-            styles.container,
-            theme === 'dark' ? styles.dark : styles.light,
+            styles.titulo,
+            theme === 'dark' ? styles.darkTitle : styles.light,
           ]}>
-          <Text
-            style={[
-              styles.titulo,
-              theme === 'dark' ? styles.darkTitle : styles.light,
-            ]}>
-            Promocion del dia
-          </Text>
-          <View style={styles.center}>
-            <TouchableOpacity
+          Promocion del dia
+        </Text>
+        <View style={styles.center}>
+          <TouchableOpacity
             onPress={() => {
-                navigation.navigate('Detalles del producto');
-              }}>
-              <Image
-                source={
-                  theme === 'light'
-                    ? require('../src/img/cupon.png')
-                    : require('../src/img/cuponDark.png')
-                }></Image>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.center}>
-            <View style={styles.row}>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={styles.center}>
-            <View style={styles.row}>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.botones}
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <Image source={require('../src/img/farmacia.png')}></Image>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <Text
-            style={[
-              styles.titulo,
-              theme === 'dark' ? styles.darkTitle : styles.light,
-            ]}>
-            Cupones
-          </Text>
-          <View style={styles.center}>
+              navigation.navigate('Detalles del producto');
+            }}>
+            <Image
+              source={
+                theme === 'light'
+                  ? require('../src/img/cupon.png')
+                  : require('../src/img/cuponDark.png')
+              }></Image>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.center}>
+          <View style={styles.row}>
             <TouchableOpacity
+              style={styles.botones}
               onPress={() => {
-                navigation.navigate('Detalles del producto');
+                navigation.navigate('');
               }}>
-              <Image
-                source={
-                  theme === 'light'
-                    ? require('../src/img/cupon.png')
-                    : require('../src/img/cuponDark.png')
-                }></Image>
+              <Image source={require('../src/img/farmacia.png')}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.botones}
+              onPress={() => {
+                navigation.navigate('');
+              }}>
+              <Image source={require('../src/img/farmacia.png')}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.botones}
+              onPress={() => {
+                navigation.navigate('');
+              }}>
+              <Image source={require('../src/img/farmacia.png')}></Image>
             </TouchableOpacity>
           </View>
         </View>
-      </>
-    </ScrollView>
+        <View style={styles.center}>
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.botones}
+              onPress={() => {
+                navigation.navigate('');
+              }}>
+              <Image source={require('../src/img/farmacia.png')}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.botones}
+              onPress={() => {
+                navigation.navigate('');
+              }}>
+              <Image source={require('../src/img/farmacia.png')}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.botones}
+              onPress={() => {
+                navigation.navigate('');
+              }}>
+              <Image source={require('../src/img/farmacia.png')}></Image>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <Text
+          style={[
+            styles.titulo,
+            theme === 'dark' ? styles.darkTitle : styles.light,
+          ]}>
+          Cupones
+        </Text>
+        <View style={styles.center}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Detalles del producto');
+            }}>
+            <Image
+              source={
+                theme === 'light'
+                  ? require('../src/img/cupon.png')
+                  : require('../src/img/cuponDark.png')
+              }></Image>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </CustomScrollView>
   );
 };
 

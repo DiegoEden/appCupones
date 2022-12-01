@@ -8,19 +8,18 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
+import {CustomScrollView} from '../components/containers';
 
 const History = () => {
   const theme = useColorScheme();
   return (
-    <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-      <>
-        <View
-          style={[
-            styles.container,
-            theme === 'dark' ? styles.dark : styles.light,
-          ]}></View>
-      </>
-    </ScrollView>
+    <CustomScrollView>
+      <View
+        style={[
+          styles.container,
+          theme === 'dark' ? styles.dark : styles.light,
+        ]}></View>
+    </CustomScrollView>
   );
 };
 

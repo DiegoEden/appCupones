@@ -1,9 +1,33 @@
 import React from 'react';
-import {View, useColorScheme, StyleSheet, Image, Text} from 'react-native';
+import {
+  View,
+  useColorScheme,
+  StyleSheet,
+  Image,
+  Text,
+  BackHandler,
+} from 'react-native';
 import {MarginBoton, Boton} from '../components/button';
 import {SubTitle, Title} from '../components/label';
+import {useFocusEffect} from '@react-navigation/native';
 
 const Home = ({navigation}) => {
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        BackHandler.exitApp();
+        return true;
+      };
+
+      // Add Event Listener for hardwareBackPress
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => {
+        // Once the Screen gets blur Remove Event Listener
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      };
+    }, []),
+  );
   const theme = useColorScheme();
 
   return (

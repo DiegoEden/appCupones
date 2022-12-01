@@ -18,11 +18,9 @@ import {
 import {useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {KeyboardAvoidingView} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {THEME_MODE} from '../App';
+import {CenterView, CustomScrollView} from '../components/containers';
 
 const Profile = ({navigation}) => {
-
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -59,57 +57,56 @@ const Profile = ({navigation}) => {
       enabled
       keyboardVerticalOffset={20}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView style={theme === 'dark' ? styles.dark : styles.light}>
-          <>
+        <CustomScrollView>
+          <View
+            style={[
+              styles.container,
+              theme === 'dark' ? styles.dark : styles.light,
+            ]}>
+            <CenterView>
+              <Image
+                source={require('../src/img/logo2Dark.png')}
+                style={styles.imgSigIn}></Image>
+            </CenterView>
+
             <View
               style={[
-                styles.container,
-                theme === 'dark' ? styles.dark : styles.light,
+                styles.card,
+                theme === 'dark' ? styles.darkCard : styles.light,
               ]}>
-              <View style={styles.center}>
-                <Image
-                  source={require('../src/img/logo2Dark.png')}
-                  style={styles.imgSigIn}></Image>
-              </View>
-              <View
-                style={[
-                  styles.card,
-                  theme === 'dark' ? styles.darkCard : styles.light,
-                ]}>
-                <LabelForm texto="Usuario"></LabelForm>
+              <LabelForm texto="Usuario"></LabelForm>
 
-                <View style={styles.center}>
-                  <MainInput placeholder="Nombre de usuario"></MainInput>
-                </View>
+              <CenterView>
+                <MainInput placeholder="Nombre de usuario"></MainInput>
+              </CenterView>
 
-                <LabelForm texto="Email"></LabelForm>
+              <LabelForm texto="Email"></LabelForm>
 
-                <View style={styles.center}>
-                  <MainInput placeholder="Ejemplo@mail.com"></MainInput>
-                </View>
+              <CenterView>
+                <MainInput placeholder="Ejemplo@mail.com"></MainInput>
+              </CenterView>
 
-                <LabelForm texto="Número de teléfono"></LabelForm>
+              <LabelForm texto="Número de teléfono"></LabelForm>
 
-                <View style={styles.center}>
-                  <NumberInput placeholder="Número de teléfono"></NumberInput>
-                </View>
-                <LabelForm texto="Contraseña"></LabelForm>
+              <CenterView>
+                <NumberInput placeholder="Número de teléfono"></NumberInput>
+              </CenterView>
+              <LabelForm texto="Contraseña"></LabelForm>
 
-                <View style={styles.center}>
-                  <PwdInput placeholder="Contraseña"></PwdInput>
-                </View>
-              </View>
-
-              <View style={styles.center}>
-                <Boton
-                  texto="Confirmar"
-                  onPress={() => {
-                    navigation.navigate('index');
-                  }}></Boton>
-              </View>
+              <CenterView>
+                <PwdInput placeholder="Contraseña"></PwdInput>
+              </CenterView>
             </View>
-          </>
-        </ScrollView>
+
+            <CenterView>
+              <Boton
+                texto="Confirmar"
+                onPress={() => {
+                  navigation.navigate('index');
+                }}></Boton>
+            </CenterView>
+          </View>
+        </CustomScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
@@ -135,12 +132,10 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 7,
     paddingBottom: 35,
-    paddingTop: 30,
-    marginTop: 10,
+    paddingTop: 20,
+    marginTop: 30,
   },
-  center: {
-    alignItems: 'center',
-  },
+
   imgSigIn: {
     width: '100%',
     height: 350,
